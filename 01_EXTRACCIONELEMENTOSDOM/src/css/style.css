@@ -13,3 +13,8 @@ h1 {
     background-color: white;
     color: black;
 }
+
+body {
+    text-align: center;
+    padding: 0 150px;
+}
