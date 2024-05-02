@@ -9,7 +9,8 @@ let mascotas = [
         nombrePropietario: "marlon",
         documentoPropietario: "1007405332",
         telefonoPropietario: "3194746457",
-        correoPropietario: "marlono1naranjo@gmail.com"
+        correoPropietario: "marlono1naranjo@gmail.com",
+        imagen: "./public/img/pCriolla.webp"
     },
     {
         nombre: "titi",
@@ -21,7 +22,8 @@ let mascotas = [
         nombrePropietario: "marlon",
         documentoPropietario: "1007405332",
         telefonoPropietario: "3194746457",
-        correoPropietario: "marlono1naranjo@gmail.com"
+        correoPropietario: "marlono1naranjo@gmail.com",
+        imagen: "./public/img/titi.webp"
     },
     {
         nombre: "whiskers",
@@ -33,7 +35,8 @@ let mascotas = [
         nombrePropietario: "carolina",
         documentoPropietario: "1023654789",
         telefonoPropietario: "3178965478",
-        correoPropietario: "carolina.mendoza@example.com"
+        correoPropietario: "carolina.mendoza@example.com",
+        imagen: "./public/img/gSiames.webp"
     },
     {
         nombre: "max",
@@ -45,7 +48,8 @@ let mascotas = [
         nombrePropietario: "roberto",
         documentoPropietario: "1098741236",
         telefonoPropietario: "3125874963",
-        correoPropietario: "roberto.gomez@example.com"
+        correoPropietario: "roberto.gomez@example.com",
+        imagen: "./public/img/gSiames.webp"
     },
     {
         nombre: "fluffy",
@@ -57,7 +61,8 @@ let mascotas = [
         nombrePropietario: "andres",
         documentoPropietario: "1036985472",
         telefonoPropietario: "3189652147",
-        correoPropietario: "andres.rodriguez@example.com"
+        correoPropietario: "andres.rodriguez@example.com",
+        imagen: "./public/img/cHolandes.webp"
     },
     {
         nombre: "mittens",
@@ -69,19 +74,21 @@ let mascotas = [
         nombrePropietario: "laura",
         documentoPropietario: "1052147896",
         telefonoPropietario: "3178964521",
-        correoPropietario: "laura.martinez@example.com"
+        correoPropietario: "laura.martinez@example.com",
+        imagen: "./public/img/gAngora.webp"
     },
     {
         nombre: "buddy",
         especie: "perro",
-        raza: "bulldog",
+        raza: "san bernardo",
         edad: calcularAñosMascota(new Date("2015/03/25")),
         peso: "22",
         estado: "estable",
         nombrePropietario: "diego",
         documentoPropietario: "1078963214",
         telefonoPropietario: "3136985472",
-        correoPropietario: "diego.perez@example.com"
+        correoPropietario: "diego.perez@example.com",
+        imagen: "./public/img/sanBernadoPerro.webp"
     },
     {
         nombre: "nibbles",
@@ -121,6 +128,10 @@ let mascotas = [
     }
 ]
 
+function estiloCapitalizate(texto) {
+    return (texto).charAt(0).toUpperCase() + (texto).slice(1)
+}
+
 function calcularAñosMascota(fechaNacimientoMascota) {
     let fechaActual = new Date()
     let restaFechas = fechaActual - fechaNacimientoMascota
@@ -131,32 +142,47 @@ function calcularAñosMascota(fechaNacimientoMascota) {
 }
 const main = document.createElement("main")
 
-main.classList.add("d-flex",  "justify-content-center", "flex-wrap", "gap-3")
-
-alert("Please enter")
+main.classList.add("d-flex", "justify-content-center", "flex-wrap", "gap-3")
 
 const body = document.querySelector("body")
 body.appendChild(main)
 
-for (let i = 0; i < 70; i++) {
+mascotas.forEach(mascota => {
     main.innerHTML += `
+    <section class="card" style="width: 25rem;">
+    <img src="${mascota.imagen}" class="card-img-top w-100 h-100" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">${estiloCapitalizate(mascota.nombre)}</h5>
+      <ul class="list-group list-group-flush">
+          <li class="list-group-item">Especie: ${estiloCapitalizate(mascota.raza)}</li>
+          <li class="list-group-item">Especie: ${estiloCapitalizate(mascota.raza)}</li>
+          <li class="list-group-item">Especie: ${estiloCapitalizate(mascota.raza)}</li>
+          <li class="list-group-item">Especie: ${estiloCapitalizate(mascota.raza)}</li>
+          <li class="list-group-item">Especie: ${estiloCapitalizate(mascota.raza)}</li>
+          <br>
+        </ul>
+          <p> Información propietario</p>
+          <ul class="list-group list-group-flush">
+          <li class="list-group-item">Especie: ${estiloCapitalizate(mascota.raza)}</li>
+          <li class="list-group-item">Especie: ${estiloCapitalizate(mascota.raza)}</li>
+          <li class="list-group-item">Especie: ${estiloCapitalizate(mascota.raza)}</li>
+          <li class="list-group-item">Especie: ${estiloCapitalizate(mascota.raza)}</li>
+      </ul>
+      <a href="#" class="btn btn-primary">Adoptar</a>
+    </div>
+  </section>
+`
+})
+/* 
 <section class="card" style="width: 18rem;">
-<img src="./public/image/sanbernadoperro.webp"
-    class="card-img-top" alt="...">
-<div class="card-body">
+  <img src="${mascota.imagen}" class="card-img-top w-100 h-100" alt="...">
+  <div class="card-body">
     <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-        card's content.</p>
-</div>
-<ul class="list-group list-group-flush">
-    <li class="list-group-item">An item</li>
-    <li class="list-group-item">A second item</li>
-    <li class="list-group-item">A third item</li>
-</ul>
-<div class="card-body">
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-</div>
-</section>
-`  
-}
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">An item</li>
+        <li class="list-group-item">A second item</li>
+        <li class="list-group-item">A third item</li>
+    </ul>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</section> */
