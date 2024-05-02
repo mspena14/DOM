@@ -45,6 +45,5 @@ for (let i = 0; i < 70; i++) {
     <a href="#" class="card-link">Another link</a>
 </div>
 </section>
-`
-    
+`  
 }
