@@ -1,194 +1,102 @@
-let mascotas = [
-    {
-        nombre: "luna",
-        especie: "perro",
-        raza: "criollo",
-        edad: calcularAñosMascota(new Date("2014/06/15")),
-        peso: "20",
-        estado: "critico",
-        nombrePropietario: "marlon",
-        documentoPropietario: "1007405332",
-        telefonoPropietario: "3194746457",
-        correoPropietario: "marlono1naranjo@gmail.com",
-        imagen: "./public/img/pCriolla.webp"
-    },
-    {
-        nombre: "titi",
-        especie: "gato",
-        raza: "criollo",
-        edad: calcularAñosMascota(new Date("2020/05/10")),
-        peso: "6",
-        estado: "estable",
-        nombrePropietario: "marlon",
-        documentoPropietario: "1007405332",
-        telefonoPropietario: "3194746457",
-        correoPropietario: "marlono1naranjo@gmail.com",
-        imagen: "./public/img/titi.webp"
-    },
-    {
-        nombre: "whiskers",
-        especie: "gato",
-        raza: "siamés",
-        edad: calcularAñosMascota(new Date("2019/07/03")),
-        peso: "6",
-        estado: "critico",
-        nombrePropietario: "carolina",
-        documentoPropietario: "1023654789",
-        telefonoPropietario: "3178965478",
-        correoPropietario: "carolina.mendo@example.com",
-        imagen: "./public/img/gSiames.webp"
-    },
-    {
-        nombre: "max",
-        especie: "perro",
-        raza: "labrador",
-        edad: calcularAñosMascota(new Date("2016/08/15")),
-        peso: "25",
-        estado: "estable",
-        nombrePropietario: "roberto",
-        documentoPropietario: "1098741236",
-        telefonoPropietario: "3125874963",
-        correoPropietario: "roberto.gomez@example.com",
-        imagen: "./public/img/gSiames.webp"
-    },
-    {
-        nombre: "fluffy",
-        especie: "conejo",
-        raza: "holandés",
-        edad: calcularAñosMascota(new Date("2020/02/20")),
-        peso: "2",
-        estado: "estable",
-        nombrePropietario: "andres",
-        documentoPropietario: "1036985472",
-        telefonoPropietario: "3189652147",
-        correoPropietario: "andres.rodriguez@example.com",
-        imagen: "./public/img/cHolandes.webp"
-    },
-    {
-        nombre: "mittens",
-        especie: "gato",
-        raza: "angora",
-        edad: calcularAñosMascota(new Date("2017/11/12")),
-        peso: "7",
-        estado: "critico",
-        nombrePropietario: "laura",
-        documentoPropietario: "1052147896",
-        telefonoPropietario: "3178964521",
-        correoPropietario: "laura.martinez@example.com",
-        imagen: "./public/img/gAngora.webp"
-    },
-    {
-        nombre: "buddy",
-        especie: "perro",
-        raza: "san bernardo",
-        edad: calcularAñosMascota(new Date("2015/03/25")),
-        peso: "22",
-        estado: "estable",
-        nombrePropietario: "diego",
-        documentoPropietario: "1078963214",
-        telefonoPropietario: "3136985472",
-        correoPropietario: "diego.perez@example.com",
-        imagen: "./public/img/sanBernadoPerro.webp"
-    },
-    {
-        nombre: "nibbles",
-        especie: "conejo",
-        raza: "mini lop",
-        edad: calcularAñosMascota(new Date("2018/06/08")),
-        peso: "1.5",
-        estado: "estable",
-        nombrePropietario: "andres",
-        documentoPropietario: "1036985472",
-        telefonoPropietario: "3189652147",
-        correoPropietario: "andres.rodriguez@example.com",
-        imagen: "./public/img/sanBernadoPerro.webp"
-    },
-    {
-        nombre: "toby",
-        especie: "perro",
-        raza: "poodle",
-        edad: calcularAñosMascota(new Date("2019/04/30")),
-        peso: "15",
-        estado: "critico",
-        nombrePropietario: "Maria",
-        documentoPropietario: "1025478963",
-        telefonoPropietario: "3169852478",
-        correoPropietario: "maria.fernandez@example.com",
-        imagen: "./public/img/sanBernadoPerro.webp"
-    },
-    {
-        nombre: "snowball",
-        especie: "conejo",
-        raza: "rex",
-        edad: calcularAñosMascota(new Date("2016/10/20")),
-        peso: "2.5",
-        estado: "estable",
-        nombrePropietario: "andres",
-        documentoPropietario: "1036985472",
-        telefonoPropietario: "3189652147",
-        correoPropietario: "andres.rodriguez@example.com",
-        imagen: "./public/img/sanBernadoPerro.webp"
-    }
-]
 
 function estiloCapitalizate(texto) {
     return (texto).charAt(0).toUpperCase() + (texto).slice(1)
 }
 
-function calcularAñosMascota(fechaNacimientoMascota) {
-    let fechaActual = new Date()
-    let restaFechas = fechaActual - fechaNacimientoMascota
-    let años = restaFechas / (1000 * 60 * 60 * 24 * 365.25) //Se multiplica por 365.25 para que se tenga en cuenta los años biciestos
-    let añosRedondeados = Math.floor(años)
-
-    return añosRedondeados
-}
 const main = document.querySelector("main")
 
 main.classList.add("d-flex", "justify-content-center", "flex-wrap", "gap-3")
 
 const body = document.querySelector("body")
 
+function reset1() {
+    mascotas.forEach(mascota => {
+        main.innerHTML += `
+    <section class="card" style="width: 25rem;">
+        <figure class="figure w-100 h-100">
+            <img src=${mascota.imagen} class=" w-100 h-100 border rounded" alt="...">
+        </figure>
+        <article class="d-flex flex-column card-body justify-content-center">
+            <h4 class="card-title">${estiloCapitalizate(mascota.nombre)}</h4>
+            
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"> <span class="fw-semibold">Especie:</span>
+                    ${estiloCapitalizate(mascota.especie)}</li>
+                <li class="list-group-item"> <span class="fw-semibold">Raza:</span>
+                    ${estiloCapitalizate(mascota.raza)}</li>
+                <li class="list-group-item"> <span class="fw-semibold">Edad:</span> ${mascota.edad} años</li>
+                <li class="list-group-item"> <span class="fw-semibold">Peso:</span> ${mascota.peso} kg</li>
+                <li class="list-group-item"> <span class="fw-semibold">Estado:</span>
+                    ${estiloCapitalizate(mascota.estado)}</li>
+                <br>
+            </ul>
+            <h6 class="fw-bold"> Información propietario</h6>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"> <span class="fw-semibold">Nombre:</span>
+                    ${estiloCapitalizate(mascota.nombrePropietario)}</li>
+                <li class="list-group-item"> <span class="fw-semibold">Documento:</span>
+                    ${mascota.documentoPropietario}</li>
+                <li class="list-group-item"> <span class="fw-semibold">Telefono:</span>
+                    ${mascota.telefonoPropietario}</li>
+                <li class="list-group-item "> <span class="fw-semibold">Email:</span> 
+                    ${mascota.correoPropietario}</li>
+            </ul>
+            <br>
+            <a href="https://www.adoptanocompres.org/?gad_source=1&gclid=CjwKCAjw88yxBhBWEiwA7cm6pd0yftAIjqZU48jzMGWzuto6aEMO1GI38UdJtA5sKh7d1q7CtCr72xoCt3wQAvD_BwE"
+                class="btn btn-primary mx-5" target="_blank">Adoptar</a>
+        </article>
+    </section>
+    `
+    })
+}
+
 mascotas.forEach(mascota => {
     main.innerHTML += `
-    <section class="card" style="width: 25rem;">
-    <figure class="card-img-top w-100 h-100">
-    <img src="${mascota.imagen}" class="card-img-top w-100 h-100" alt="...">
+<section class="card" style="width: 25rem;">
+    <figure class="figure w-100 h-100">
+        <img src=${mascota.imagen} class=" w-100 h-100 border rounded" alt="...">
     </figure>
-    <article class="card-body">
-      <h4 class="card-title">${estiloCapitalizate(mascota.nombre)}</h4>
-      <ul class="list-group list-group-flush">
-          <li class="list-group-item"> <span class="fw-semibold">Especie:</span> ${estiloCapitalizate(mascota.especie)}</li>
-          <li class="list-group-item"> <span class="fw-semibold">Raza:</span> ${estiloCapitalizate(mascota.raza)}</li>
-          <li class="list-group-item"> <span class="fw-semibold">Edad:</span> ${mascota.edad} años</li>
-          <li class="list-group-item"> <span class="fw-semibold">Peso:</span> ${mascota.peso} kg</li>
-          <li class="list-group-item"> <span class="fw-semibold">Estado:</span> ${estiloCapitalizate(mascota.estado)}</li>
-          <br>
+    <article class="d-flex flex-column card-body justify-content-center">
+        <h4 class="card-title">${estiloCapitalizate(mascota.nombre)}</h4>
+        
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"> <span class="fw-semibold">Especie:</span>
+                ${estiloCapitalizate(mascota.especie)}</li>
+            <li class="list-group-item"> <span class="fw-semibold">Raza:</span>
+                ${estiloCapitalizate(mascota.raza)}</li>
+            <li class="list-group-item"> <span class="fw-semibold">Edad:</span> ${mascota.edad} años</li>
+            <li class="list-group-item"> <span class="fw-semibold">Peso:</span> ${mascota.peso} kg</li>
+            <li class="list-group-item"> <span class="fw-semibold">Estado:</span>
+                ${estiloCapitalizate(mascota.estado)}</li>
+            <br>
         </ul>
-          <h6 class="fw-bold"> Información propietario</h6>
-          <ul class="list-group list-group-flush">
-          <li class="list-group-item"> <span class="fw-semibold">Nombre:</span> ${estiloCapitalizate(mascota.nombrePropietario)}</li>
-          <li class="list-group-item"> <span class="fw-semibold">Documento:</span> ${mascota.documentoPropietario}</li>
-          <li class="list-group-item"> <span class="fw-semibold">Telefono:</span> ${mascota.telefonoPropietario}</li>
-          <li class="list-group-item"> <span class="fw-semibold">Email:</span> ${mascota.correoPropietario}</li>
-      </ul>
-      <br>
-      
-      <a href="#" class="btn btn-primary">Adoptar</a>
+        <h6 class="fw-bold"> Información propietario</h6>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"> <span class="fw-semibold">Nombre:</span>
+                ${estiloCapitalizate(mascota.nombrePropietario)}</li>
+            <li class="list-group-item"> <span class="fw-semibold">Documento:</span>
+                ${mascota.documentoPropietario}</li>
+            <li class="list-group-item"> <span class="fw-semibold">Telefono:</span>
+                ${mascota.telefonoPropietario}</li>
+            <li class="list-group-item "> <span class="fw-semibold">Email:</span> 
+                ${mascota.correoPropietario}</li>
+        </ul>
+        <br>
+        <a href="https://www.adoptanocompres.org/?gad_source=1&gclid=CjwKCAjw88yxBhBWEiwA7cm6pd0yftAIjqZU48jzMGWzuto6aEMO1GI38UdJtA5sKh7d1q7CtCr72xoCt3wQAvD_BwE"
+            class="btn btn-primary mx-5" target="_blank">Adoptar</a>
     </article>
-  </section>
+</section>
 `
 })
-/* 
-<section class="card" style="width: 18rem;">
-  <img src="${mascota.imagen}" class="card-img-top w-100 h-100" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <ul class="list-group list-group-flush">
-        <li class="list-group-item">An item</li>
-        <li class="list-group-item">A second item</li>
-        <li class="list-group-item">A third item</li>
-    </ul>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</section> */
+
+const limpiar = document.querySelector("#limpiar")
+
+limpiar.addEventListener("click", () => {
+    main.classList.add("visually-hidden")
+})
+
+const reset = document.querySelector("#limpiar2")
+
+reset.addEventListener("click",() => {
+    main.classList.remove("visually-hidden")
+})
