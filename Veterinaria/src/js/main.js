@@ -53,7 +53,7 @@ function reset1() {
 mascotas.forEach(mascota => {
     main.innerHTML += `
 <section class="card" style="width: 25rem;">
-    <figure class="figure w-100 h-100">
+    <figure class="figure w-100 h-100 ">
         <img src=${mascota.imagen} class=" w-100 h-100 border rounded" alt="...">
     </figure>
     <article class="d-flex flex-column card-body justify-content-center">
