@@ -39,7 +39,7 @@ mascotas.forEach(mascota => {
                 ${mascota.correoPropietario}</li>
         </ul>
         <br>
-        <a href="https://www.adoptanocompres.org/?gad_source=1&gclid=CjwKCAjw88yxBhBWEiwA7cm6pd0yftAIjqZU48jzMGWzuto6aEMO1GI38UdJtA5sKh7d1q7CtCr72xoCt3wQAvD_BwE"
+        <a href="https://www.catdog.com.co/?gclid=Cj0KCQjwudexBhDKARIsAI-GWYXgdNLPT3F0zgJCVzJupNcXvWDN5Xs_TI5T1yVVRXku2QtJ2zbnP0EaAoSYEALw_wcB"
             class="btn btn-primary mx-5" target="_blank">Adoptar</a>
     </article>
 </section>
@@ -50,10 +50,14 @@ const limpiar = document.querySelector("#limpiar")
 
 limpiar.addEventListener("click", () => {
     showMascotas.classList.add("visually-hidden")
+    limpiar.classList.add("visually-hidden")
+    reset.classList.remove("visually-hidden")
 })
 
 const reset = document.querySelector("#reset")
 
 reset.addEventListener("click",() => {
     showMascotas.classList.remove("visually-hidden")
+    limpiar.classList.remove("visually-hidden")
+    reset.classList.add("visually-hidden")
 })
