@@ -10,7 +10,7 @@ let mascotas = [
         documentoPropietario: "1007405332",
         telefonoPropietario: "3194746457",
         correoPropietario: "marlono1naranjo@gmail.com",
-        imagen: "./public/img/pCriolla.webp"
+        imagen: "./public/img/Luna.webp"
     },
     {
         nombre: "whiskers",
