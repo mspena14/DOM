@@ -1,3 +1,4 @@
+//Archivo js con la data de las mascotas
 let mascotas = [
     {
         nombre: "luna",
@@ -36,7 +37,7 @@ let mascotas = [
         documentoPropietario: "1098741236",
         telefonoPropietario: "3125874963",
         correoPropietario: "roberto.gomez@example.com",
-        imagen: "./public/img/gSiames.webp"
+        imagen: "./public/img/labrador.webp"
     },
     {
         nombre: "fluffy",
@@ -101,7 +102,7 @@ let mascotas = [
         documentoPropietario: "1036985472",
         telefonoPropietario: "3189652147",
         correoPropietario: "andres.rodriguez@example.com",
-        imagen: "./public/img/sanBernadoPerro.webp"
+        imagen: "./public/img/miniLop.webp"
     },
     {
         nombre: "toby",
@@ -114,7 +115,7 @@ let mascotas = [
         documentoPropietario: "1025478963",
         telefonoPropietario: "3169852478",
         correoPropietario: "maria.fernandez@example.com",
-        imagen: "./public/img/sanBernadoPerro.webp"
+        imagen: "./public/img/podle.webp"
     },
     {
         nombre: "snowball",
@@ -127,10 +128,11 @@ let mascotas = [
         documentoPropietario: "1036985472",
         telefonoPropietario: "3189652147",
         correoPropietario: "andres.rodriguez@example.com",
-        imagen: "./public/img/sanBernadoPerro.webp"
+        imagen: "./public/img/conejoRex.webp"
     }
 ]
 
+//Función para pasar las fechas de nacimiento a años
 function calcularAñosMascota(fechaNacimientoMascota) {
     let fechaActual = new Date()
     let restaFechas = fechaActual - fechaNacimientoMascota

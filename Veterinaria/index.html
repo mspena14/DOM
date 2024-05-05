@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <!-- agregamos metadatos -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="This is a project for practice HTML,CSS and JS" />
-    <meta name="keywords" content="DOM, css, javascript, html, desarrollo, web">
+    <meta name="description"
+        content="Veterinaria Riwi es una plataforma en línea dedicada al cuidado y bienestar de las mascotas. Nuestro sitio ofrece un formulario de registro fácil de usar para que los propietarios de mascotas puedan registrar a sus compañeros peludos y acceder a servicios veterinarios. Desde el seguimiento de la salud de las mascotas hasta la adopción responsable, en Veterinaria Riwi nos comprometemos a brindar atención integral a todas las mascotas y sus dueños. Únete a nuestra comunidad y asegura la salud y felicidad de tu mascota hoy mismo." />
+    <meta name="keywords"
+        content="Veterinaria, Mascotas, Registro, Cuidado animal, Formulario de registro, Propietario de mascotas, Clínica veterinaria, Salud animal, Registro de mascotas, Adopción de mascotas">
     <meta name="sitedomain" content="https://riwi.io" />
     <meta name="organization" content="Riwi_Dell" />
     <meta name="author" content="Marlon Stiven Peña Naranjo" />
     <meta name="designer" content="Marlon Stiven Peña Naranjo" />
-    <meta name="copyright" content="© 2024 Veterinaria. All rights reserved">
+    <meta name="copyright" content="© 2024 Veterinaria Riwi. All rights reserved">
     <meta name="robots" content="index,follow" />
     <meta name="googlebot" content="index,follow" />
     <meta name="revisit-after" content="15days" />
+    <!-- Enlazamos favicon, y estilos css bootstrap y propios -->
     <link rel="shortcut icon" href="./public/icons/favicon.ico" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -22,9 +25,9 @@
 </head>
 
 <body class="mt-4 pt-5">
-
-    <header class="fixed-top w-100  z-1 ">
-        <nav class="navbar navbar-expand-lg bg-body-tertiary w-100 px-1 pe-5 ">
+    <!-- Creamos nuestro headre con una nav bar fixed en top 0  -->
+    <header id="header" class="fixed-top w-100  z-1 ">
+        <nav id="nav-bar" class="navbar navbar-expand-lg bg-body-tertiary w-100  ">
             <div class="container-fluid">
                 <a class="navbar-brand" href="/">
                     <h1 class="fs-4">Veterinaria Riwi</h1>
@@ -34,39 +37,37 @@
                     aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="toggle-mode-btn">
+                    <label class="form-check-label" for="toggle-mode-btn">Dark mode</label>
+                </div>
+                <div class="collapse navbar-collapse pe-5 " id="navbarNavDropdown">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                            <a class="nav-link" aria-current="page" href="#">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Features</a>
+                            <a class="nav-link" href="#registrar">Registrar</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Pricing</a>
+                            <a class="nav-link" href="#listados">Listados</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Dropdown link
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#filtrar">Filtrar</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-
+<!-- Creamo nuestro main donde pondremos el contenido de nuestra pagina -->
     <main class="grid row-gap-5">
+        <!-- Creamos nuestra primera sección con una imagen ubicada al unicio -->
         <figure class="figure">
             <img src="./public/img/imagenHome.webp" alt="">
         </figure>
-        <section class="mb-5 mt-3">
+        <!-- Creamos nuestra segunda sección en este caso con un fieldset ya que es el formulario de registro -->
+        <fieldset id="registrar" class="mb-5 mt-3">
             <form class="m-auto p-4 shadow w-50 ">
                 <h2 class="mb-4">Registrar mascota</h2>
 
@@ -129,71 +130,75 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
-        </section>
-
-        <section class="mb-5 ps-5">
+        </fieldset>
+        <!-- Creamos la sección para enlistar la información de las mascotas y los propietarios -->
+        <section id="listados" class="mb-5 ps-5">
             <article class="text-center">
                 <h2 class="w-100 mb-4">Listado mascotas registradas</h2>
-                <button type="button" id="reset" class="btn btn-primary visually-hidden">Mostrar</button>
+                <button type="button" id="reset" class="btn btn-primary visually-hidden">Mostrar mascotas</button>
             </article>
             <article id="showMascotas" class="mb-5 ">
-
             </article>
             <article class="text-center">
-                <button type="button" id="limpiar" class="btn btn-danger">Ocultar</button>
+                <button type="button" id="limpiar" class="btn btn-danger">Ocultar mascotas</button>
+            </article>
+            <article class="w-25 mt-5 m-auto">
+                <h2>Listado propietaros</h2>
+                <ol id="listadoPropietarios" class="list-group list-group-numbered">
+                </ol>
             </article>
         </section>
-
-        <fieldset class="d-flex justify-content-center ">
+        <!-- Creamos la sección para filtrar las mascotas por nombre o documento de propietario -->
+        <fieldset id="filtrar" class="d-flex justify-content-center ">
             <form class="m-auto p-4 w-50 shadow" role="search">
                 <h2>Filtrar mascotas</h2>
                 <div class="mb-3">
-                    <label for="buscarNombreMascota" class="form-label d-flex align-items-center fw-medium">Buscar por nombre
+                    <label for="buscarNombreMascota" class="form-label d-flex align-items-center fw-medium">Buscar por
+                        nombre
                         mascota</label>
                     <div class="d-flex"><input class="form-control me-2 mb-0 w-75" id="buscarNombreMascota"
                             type="search" placeholder="Luna, Titi..." aria-label="Search"
                             aria-describedby="buscarNombreMascotaHelp">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
+                        <button class="btn btn-outline-success" type="submit">Buscar</button>
                     </div>
                     <div id="buscarNombreMascotaHelp" class="form-text">Ingrese el nombre de la mascota a buscar.</div>
                 </div>
                 <div class="mb-3">
-                    <label for="buscarPorPropietario" class="form-label d-flex align-items-center fw-medium">Buscar por documento
-                        propietario</label>
+                    <label for="buscarPorPropietario" class="form-label d-flex align-items-center fw-medium">
+                        Buscar por documento propietario</label>
                     <div class="d-flex"><input class="form-control me-2 mb-0 w-75" id="buscarPorPropietario"
                             type="search" placeholder="1007405332..." aria-label="Search"
                             aria-describedby="buscarDocumentoPropietarioHelp">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
+                        <button class="btn btn-outline-success" type="submit">Buscar</button>
                     </div>
-                    <div id="buscarDocumentoPropietarioHelp" class="form-text">Ingrese el documento de propietario de la mascota a buscar.</div>
+                    <div id="buscarDocumentoPropietarioHelp" class="form-text">Ingrese el documento de propietario de la
+                        mascota a buscar.</div>
                 </div>
             </form>
         </fieldset>
-
     </main>
-
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-        <div class="col-md-4 d-flex align-items-center">
-            <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
-                <svg class="bi" width="30" height="24">
-                    <use xlink:href="#bootstrap" />
-                </svg>
-            </a>
-            <span class="mb-3 mb-md-0 text-body-secondary">&copy; 2024 Company, Inc</span>
-        </div>
-
-        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-            <li class="ms-3"><a class="text-body-secondary" href="#"><i class="bi bi-whatsapp"></i></a></li>
-            <li class="ms-3"><a class="text-body-secondary" href="#"><i class="bi bi-whatsapp"></i></a></li>
-            <li class="ms-3"><a class="text-body-secondary" href="#"><i class="bi bi-whatsapp"></i></a></li>
+<!-- Agregamos nuestro footer -->
+    <footer class="py-3 my-4">
+        <!-- Agregamos nuestra lista de redes sociales -->
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item"><a href="https://wa.me/573017325327?text=Hola quisiera tener más información"
+                    target="_blank" class="nav-link px-2 text-body-secondary"><i class="bi bi-whatsapp"></i></a></li>
+            <li class="nav-item"><a href="https://www.facebook.com/profile.php?id=100092420949391&locale=es_LA"
+                    target="_blank" class="nav-link px-2 text-body-secondary"><i class="bi bi-facebook"></i></a></li>
+            <li class="nav-item"><a href="https://www.linkedin.com/company/riwi-io/" target="_blank"
+                    class="nav-link px-2 text-body-secondary"><i class="bi bi-linkedin"></i></a></li>
+            <li class="nav-item"><a href="https://www.instagram.com/riwi.io/" target="_blank"
+                    class="nav-link px-2 text-body-secondary"><i class="bi bi-instagram"></i></a></li>
+            <li class="nav-item"><a href="https://twitter.com/InfoRiwi4424" target="_blank"
+                    class="nav-link px-2 text-body-secondary"><i class="bi bi-twitter-x"></i></a></li>
         </ul>
+        <!-- Agregamos nuestro copyright -->
+        <p id="copy" class="text-center text-body-secondary">&copy; 2024 Veterinaria Riwi</p>
     </footer>
-
-
+<!-- Enlazamos scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-
     <script src="./src/js/data.js"></script>
     <script src="./src/js/main.js"></script>
 </body>
