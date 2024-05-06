@@ -81,7 +81,7 @@ reset.addEventListener("click", () => {
 
 
 
-//Declaramos variables para asignar el modo oscuro 
+/* //Declaramos variables para asignar el modo oscuro 
 const allSections = document.querySelectorAll("section")
 const allUls = document.querySelectorAll("ul")
 const allLis = document.querySelectorAll("li")
@@ -139,5 +139,32 @@ toggleModeBtn.addEventListener("click", function () {
         fieldset.classList.toggle("dark-mode")
     })
 })
+ */
 
+const temaOscuro = () => {
+    document.querySelector("body").setAttribute("data-bs-theme", "dark");
+    document.querySelector("#dl-icon").setAttribute("class", "bi bi-sun-fill");
+    document.querySelectorAll(".icon-link").forEach(iconLink => {
+        iconLink.classList.remove("text-dark");
+        iconLink.classList.add("text-white");
+    });
+    document.querySelector("#footer").classList.add("bg-dark");
+    document.querySelector("#footer").classList.remove("bg-light");
+  }
+  // MODO CLARO
+  const temaClaro = () => {
+    document.querySelector("body").setAttribute("data-bs-theme", "light");
+    document.querySelector("#dl-icon").setAttribute("class", "bi bi-moon-fill");
+    document.querySelectorAll(".icon-link").forEach(iconLink => {
+        iconLink.classList.remove("text-white");
+        iconLink.classList.add("text-dark");
+    });
+    document.querySelector("#footer").classList.add("bg-light");
+    document.querySelector("#footer").classList.remove("bg-dark");
+  }
+  // BOO¿TON PARA ITERAR ENTRE LOS TEMAS
+  const cambiarTema = () => {
+    document.querySelector("body").getAttribute("data-bs-theme") === "light" ?
+        temaOscuro() : temaClaro();
+  }
 
