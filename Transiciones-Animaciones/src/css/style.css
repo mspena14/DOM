@@ -1,0 +1,76 @@
+section{
+    display: flex;
+    width: 100%;
+    height: 200px;
+    justify-content: center;
+    align-items: center;
+}
+
+.circulo{
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    background-color: blue;
+    
+}
+
+.circulo1{
+    transition: all;
+    transition-duration: 2s;
+}
+
+.circulo1:hover{
+    scale:0.5;
+    background-color: antiquewhite;
+    box-shadow: 0 0 8px black;
+}
+
+.section2{
+    gap: 30px;
+    background-color: beige;
+}
+
+.circulo21, .circulo22, .circulo23{
+    opacity: 0;
+    transition: all;
+    transition-duration: 1s;
+}
+
+.section2:hover .circulo{
+    opacity: 1;
+}
+
+.circulo21{
+    transition-delay: 3s;
+    transition-timing-function: cubic-bezier();
+}
+
+.circulo22{
+    transition-delay: 300ms;
+}
+
+.section3{
+    background-color: burlywood;
+    align-items: start;
+}
+.circulo23{
+    transition-delay: 600ms;
+}
+
+.circulo3{
+    animation-name: movimiento;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: 3;
+    animation-direction: alternate;
+    animation-fill-mode: both;
+}
+
+@keyframes movimiento {
+    from{
+        transform: translateY(0px);
+    }
+    to{
+        transform: translateY(150px);
+    }
+}

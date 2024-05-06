@@ -1,0 +1,223 @@
+<!-- 
+Nombre Completo: Pablo Andres Ruiz Arias
+Clan: DELL
+fecha: 09/04/2024
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="En esta pagina los estudiantes de Riwi pueden ver la disponibilidad de transporte compartido para poder llegar a las instalaciones y ahorrar gastos" />
+    <meta name="keywords"
+        content="Transporte, Riwi, Estudiantes, Carro, Moto, Vehiculo, Ahorrar, Compartir">
+    <meta name="sitedomain" content="https://transriwi.com/" />
+    <meta name="organization" content="RIWI_DELL" />
+    <meta name="author" content="Pablo Andres Ruiz Arias" />
+    <meta name="designer" content="Pablo Andres Ruiz Arias" />
+    <meta name="copyright" content="© 2024 TransRIwi. Todos los derechos reservados">
+    <meta name="robots" content="index,follow" />
+    <meta name="googlebot" content="index,follow" />
+    <meta name="revisit-after" content="15days" />
+    <link rel="stylesheet" href="./src/css/style.css">
+    <link rel="shortcut icon" href="./public/img/icons/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="progress"></div>
+    <!-- Header -->
+    <header>
+        <section class="leftHeader-container">
+            <div class="title-container"><span class="signoMenor"></span> <h1><span class="letra">T</span>rans<span class="letra">R</span>iwi</h1>  <span class="signoMayor"></span></div>
+        </section>
+        <section class="rightHeader-container">
+            <!-- Navbar -->
+            <nav>
+                <ul class="lista-nav">
+                    <li><a href="#requisitos"><i class="bi bi-card-checklist"></i> Requisitos</a></li>
+                    <li><a href="#acerca"><i class="bi bi-geo-fill"></i> Acerca de nosotros</a></li>
+                    <li><a href="mailto:formacion@riwi.io"><i class="bi bi-envelope-fill"></i> Contactanos</a></li>
+                    <li><a href="tel:+3017325327"><i class="bi bi-telephone-fill"></i> Llamanos</a></li>
+                </ul>
+            </nav>
+
+            <button class="button-header">Inciar Sesion</button>
+            <button class="button-header">Registrarse</button>
+        </section>
+    </header>
+
+    <!-- main -->
+    <main>
+        <!-- Contenedor de ubicacion -->
+        <section class="section-container">
+            <article class="leftLocationSection-container">
+                <h2>Transportate desde cualquier lugar hacia tu centro de entrenamiento</h2>
+                <form class="locationForm" action="./src/pages/server.html" method="get">
+                    <div class="locationInput-container">
+                        <input class="input-location" type="text" placeholder="Ingresa tu ubicacion" required>
+                    </div>
+                    <div class="locationInput-container">
+                        <input list="lista" class="input-location" placeholder="Seleccione su centro de formacion">
+                        <datalist id="lista"  name="location" required>
+                            <option value="Medellin">Medellin</option>
+                            <option value="Cali">Cali</option>
+                            <option value="Barranquilla">Barranquilla</option>
+                            <option value="Bucaramanga">Bucaramanga</option>
+                        </datalist>
+                    </div>
+                    <button class="location-button" type="submit"><i class="bi bi-send-fill"></i> Solicitar vehiculo</button>
+                </form>
+            </article>
+            <article class="imgSection-container">
+                <img class="imgSection" src="./public/img/images/cuatro_pasajeros.webp" alt="Imagen-ubicacion">
+            </article>
+        </section>
+
+        <!-- Contenedor de informacion -->
+        <section class="section-container">
+            <article class="leftImgSection-container">
+                <img class="imgSection" src="./public/img/images/conductora.webp" alt="Imagen-conductora">
+            </article>
+            <article class="rightSection-container">
+                <h2>Registrate cuando quieras y genera las ganacias que necesites</h2>
+                <p>¡Unete hoy y abre las puertas a tus oportunidades financieras!</p>
+            </article>
+        </section>
+
+        <!-- Contenedor de la tabla -->
+        <section class="section-container">
+            <article class="leftLocationSection-container">
+                <h2>Viaja con amigos</h2>
+                <div class="viajaText-container">
+                    <p>¡Viaja con amigos y crea recuerdos inolvidables!</p>
+                    <p>Observa la lista de vehiculos disponibles en cada una de nuestras sedes</p>
+                </div>
+
+                <table cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th><i class="bi bi-buildings-fill"></i> Sede</th>
+                            <th><i class="bi bi-car-front-fill"></i> Vehiculos</th>
+                            <th><i class="bi bi-bicycle"></i> Motos</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Riwi Medellin</td>
+                            <td>15</td>
+                            <td>40</td>
+                        </tr>
+                        <tr>
+                            <td>Riwi Bucaramanga</td>
+                            <td>10</td>
+                            <td>30</td>
+                        </tr>
+                        <tr>
+                            <td> Riwi Barranquilla</td>
+                            <td>20</td>
+                            <td>180</td>
+                        </tr>
+                        <tr>
+                            <td> Riwi Cali</td>
+                            <td>8</td>
+                            <td>200</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+            </article>
+            <article class="imgSection-container">
+                <img class="imgSection" src="./public/img/images/motociclistas.webp" alt="Imagen-moto">
+            </article>
+        </section>
+
+        <!-- Contenedor de requerimientos -->
+        <section id="requisitos" class="requerimientos-container">
+            <article class="requerimientosText-container">
+                <h2>¿Que necesito para ser un conductor riwi?</h2>
+                <img class="requerimientos-img" src="./public/img/images/conductores.webp" alt="Estudiantes">
+
+                <div class="requerimientosCards-container">
+                    <div class="cards">
+                        <i class="bi bi-star-fill"></i>
+                        <h4>Requisitos</h4>
+                        <div class="textCard">
+                            <p>Ser mayor de 18 años</p>
+                            <p>Verificacion de antecedentes</p>
+                            <p>Ser coder de Riwi</p>
+                        </div>
+                    </div>
+                    <div class="cards">
+                        <i class="bi bi-file-earmark-text-fill"></i>
+                        <h4>Documentos</h4>
+                        <div class="textCard">
+                            <p>Licencia de conduccion vigente</p>
+                            <p>SOAT vigente</p>
+                            <p>Tarjeta de propiedad del vehiculo actual</p>
+                        </div>
+                    </div>
+                    <div class="cards">
+                        <i class="bi bi-calendar-fill"></i>
+                        <h4>Empezar es muy facil</h4>
+                        <div class="textCard">
+                            <p>Registrate</p>
+                            <p>Sube tus documentos</p>
+                            <p>Sal a manejar</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Parte de formulario de registro -->
+            <article class="registro-container">
+                <h3>Registrate cuando quieras</h3>
+                <form class="registro-form" action="./src/pages/server.html" method="get">
+                    <input type="text" placeholder="Ingresa su nombre" required>
+                    <input type="email" placeholder="Ingresa su correo" required>
+                    <input type="tel" placeholder="Ingresa su correo" required>
+                    <input list="lista" class="input-location" placeholder="Seleccione su centro de formacion" required>
+                    <select name="seleccion" required>
+                        <option value="Seleccione su perfil" disabled selected>Seleccione su perfil</option>
+                        <option value="Conductor">Conductor</option>
+                        <option value="Pasajero">Pasajero</option>
+                    </select>
+                    <textarea name="" id="" cols="30" rows="10" placeholder="Comentarios" required></textarea>
+                    <button class="registro-button" type="submit">Registrate</button>
+                </form>
+            </article>
+        </section>
+        
+        <!-- Condenedor de acerca de nosotros -->
+        <section id="acerca" class="nosotros-container">
+            <h2>Acerca de nosotros</h2>
+            <article class="media-container">
+                <div class="videoMap-container">
+                    <h4>¿Quines somos?</h4>
+                    <iframe class="mapVideo" src="https://www.youtube.com/embed/7CFyOSd-m3o?si=Sla2QRdW7XYrlziP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="videoMap-container">
+                    <h4>¿Quines somos?</h4>
+                    <iframe class="mapVideo" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.337858174151!2d-75.58618982420909!3d6.219100993768888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e44293f0e114eef%3A0x99610cdd44c7c081!2sRiwi%20-%20Be%20a%20Coder!5e0!3m2!1ses-419!2sco!4v1712676165924!5m2!1ses-419!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </article>
+        </section>
+
+        <!-- Boton de whatsapp -->
+        <a href="https://wa.me/573017325327/?text=Escribeme para mas informacion" target="_blank"><img class="wpp" src="./public/img/icons/whatsapp.webp" alt="wpp"></a>
+    </main>
+
+    <!-- footer -->
+    <footer>
+        <ul class="social-footer">
+            <li><a href="https://www.facebook.com/?locale=es_LA" target="_blank"><i class="bi bi-facebook"></i></a></li>
+            <li><a href="https://www.instagram.com/" target="_blank"><i class="bi bi-instagram" targe ></i></a></li>
+            <li><a href="https://co.linkedin.com/" target="_blank"><i class="bi bi-linkedin" targe ></i></a></li>
+            <li><a href="https://twitter.com/?lang=es" target="_blank"><i class="bi bi-twitter-x" targe ></i></a></li>
+        </ul>
+        <p class="texto-footer">© 2024 <span class="riwi">Riwi.io</span> Todos los derechos reservados</p>
+    </footer>
+</body>
+</html>
