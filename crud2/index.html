@@ -10,45 +10,36 @@
         content="Veterinaria, Mascotas, Registro, Cuidado animal, Formulario de registro, Propietario de mascotas, Clínica veterinaria, Salud animal, Registro de mascotas, Adopción de mascotas">
     <meta name="sitedomain" content="https://riwi.io" />
     <meta name="organization" content="Riwi_Dell" />
-    <meta name="author" content="Marlon Stiven Peña Naranjo" />
-    <meta name="designer" content="Marlon Stiven Peña Naranjo" />
+    <meta name="author" content="marlon Stiven peña Naranjo" />
+    <meta name="designer" content="marlon Stiven peña Naranjo" />
     <meta name="copyright" content="© 2024 Veterinaria Riwi. All rights reserved">
     <meta name="robots" content="index,follow" />
     <meta name="googlebot" content="index,follow" />
     <meta name="revisit-after" content="15days" />
     <!-- Enlazamos favicon y estilos propios -->
     <link rel="shortcut icon" href="./public/icons/favicon.ico" type="image/x-icon">
-    <title>Document</title>
+    <title>crud2</title>
 </head>
 
 <body>
-    <div class="container py-4 px-3 mx-auto">
-        <h1>Hello, Bootstrap and Vite!</h1>
-        <button class="btn btn-primary">Primary button</button>
-    </div>
-    <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Launch demo modal
-  </button>
-  
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
+    <header></header>
+    <main class="container">
+        <table class="table table-striped table-hover table-bordered text-capitalize align-middle text-center caption-top">
+            <thead>
+                <caption>List of coders</caption>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">name</th>
+                    <th scope="col">lastName</th>
+                    <th scope="col">email</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody" class="table-group-divider">
+
+            </tbody>
+        </table>
+    </main>
+    <footer></footer>
 
     <script type="module" src="./src/js/main.js"></script>
 </body>
