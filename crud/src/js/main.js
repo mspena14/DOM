@@ -5,6 +5,7 @@ import * as bootstrap from 'bootstrap'
 //Import database
 import { coders } from "../../public/data/database"
 import { withForClassic, withForEach, withForOf, withForIn} from "./operations"
+import Swal from 'sweetalert2'
 
 const body = document.querySelector('body')
 const main = document.querySelector("main")
@@ -13,6 +14,7 @@ const tBody = document.querySelector("#tableBody")
 const br = document.createElement("br")
 
 function createRow() {
+    tBody.innerHTML = ``
     for (const coder of coders) {
         let row = document.createElement("tr")
         let th = document.createElement("th")
@@ -32,16 +34,24 @@ createRow()
 
 tBody.appendChild(br)
 
-withForClassic(coders, tBody)
 
-tBody.appendChild(br)
+const name = document.querySelector("#name")
+const lastName = document.querySelector("#last-name")
+const email = document.querySelector("#email")
+const form = document.querySelector("form")
 
-withForEach(coders, tBody)
+let addCoder = form.addEventListener("submit", (event) => {
+    const newCoder = {
+        id: Date.now(),
+        name: name.value,
+        lastName: lastName.value,
+        email: email.value
+    }
 
-tBody.appendChild(br)
+    coders.push(newCoder)
+    form.reset()
+    createRow()
+    alert("coder added successfully")
+    event.preventDefault()
+})
 
-withForOf(coders, tBody)
-
-tBody.appendChild(br)
-
-withForIn(coders, tBody)
