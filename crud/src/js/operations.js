@@ -1,8 +1,9 @@
 
 export function withForClassic(coders, tBody) {
-    for (let i = 0; i < coders.length; i++) {
+  tBody.innerHTML = ``
+  for (let i = 0; i < coders.length; i++) {
 
-        tBody.innerHTML += `
+    tBody.innerHTML += `
     <tr>
     <th scope="row">${coders[i].id}</th>
     <td>${coders[i].name}</td>
@@ -10,12 +11,13 @@ export function withForClassic(coders, tBody) {
     <td>${coders[i].email}</td>
   </tr>
     `
-    }
+  }
 }
 
 export function withForEach(coders, tBody) {
-    coders.forEach(coder => {
-        tBody.innerHTML += `
+  tBody.innerHTML = ``
+  coders.forEach(coder => {
+    tBody.innerHTML += `
     <tr>
     <th scope="row">${coder.id}</th>
     <td>${coder.name}</td>
@@ -23,12 +25,13 @@ export function withForEach(coders, tBody) {
     <td>${coder.email}</td>
   </tr>
     `
-    })
+  })
 }
 
 export function withForOf(coders, tBody) {
-    for (const coder of coders) {
-        tBody.innerHTML += `
+  tBody.innerHTML = ``
+  for (const coder of coders) {
+    tBody.innerHTML += `
     <tr>
     <th scope="row">${coder.id}</th>
     <td>${coder.name}</td>
@@ -36,15 +39,14 @@ export function withForOf(coders, tBody) {
     <td>${coder.email}</td>
   </tr>
     `
-    }
+  }
 }
 
 export function withForIn(coders, tBody) {
-
-
-    for (const key in coders) {
-        const coder = coders[key]
-        tBody.innerHTML += `
+  tBody.innerHTML = ``
+  for (const key in coders) {
+    const coder = coders[key]
+    tBody.innerHTML += `
     <tr>
     <th scope="row">${coder.id}</th>
     <td>${coder.name}</td>
@@ -52,5 +54,17 @@ export function withForIn(coders, tBody) {
     <td>${coder.email}</td>
   </tr>
     `
-    }
+  }
+}
+
+
+export function create(name, lastName, email, coders) {
+  const newCoder = {
+    id: Date.now(),
+    name: name.value,
+    lastName: lastName.value,
+    email: email.value
+  }
+
+  coders.push(newCoder)
 }

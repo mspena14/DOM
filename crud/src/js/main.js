@@ -4,8 +4,9 @@ import '../scss/styles.scss'
 import * as bootstrap from 'bootstrap'
 //Import database
 import { coders } from "../../public/data/database"
-import { withForClassic, withForEach, withForOf, withForIn} from "./operations"
-import Swal from 'sweetalert2'
+import { withForClassic, withForEach, withForOf, withForIn, create} from "./operations"
+import { alertSmallSuccess } from './alerts'
+
 
 const body = document.querySelector('body')
 const main = document.querySelector("main")
@@ -41,17 +42,10 @@ const email = document.querySelector("#email")
 const form = document.querySelector("form")
 
 let addCoder = form.addEventListener("submit", (event) => {
-    const newCoder = {
-        id: Date.now(),
-        name: name.value,
-        lastName: lastName.value,
-        email: email.value
-    }
-
-    coders.push(newCoder)
+    create(name,lastName,email, coders)
+    alertSmallSuccess("Success")
     form.reset()
-    createRow()
-    alert("coder added successfully")
+    withForIn(coders, tBody)
     event.preventDefault()
 })
 
