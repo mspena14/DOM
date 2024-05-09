@@ -41,11 +41,12 @@ const lastName = document.querySelector("#last-name")
 const email = document.querySelector("#email")
 const form = document.querySelector("form")
 
-let addCoder = form.addEventListener("submit", (event) => {
-    create(name,lastName,email, coders)
-    alertSmallSuccess("Success")
-    form.reset()
-    withForIn(coders, tBody)
-    event.preventDefault()
+form.addEventListener("submit", (event) => {
+    create(name,lastName,email, coders)//Se llama la función para agregar el nuevo coder con los datos del form
+    event.preventDefault()//metodo para evitar que se refresque la pagina al darle en submit
+    alertSmallSuccess("Saved")//Se llama a la función de la alerta
+    form.reset()//Resetea los campos del formulario
+    withForIn(coders, tBody)//Se imprimen en el navegador la nueva lista de objetos
+    
 })
 
