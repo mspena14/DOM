@@ -1,3 +1,4 @@
+import { alertSmallSuccess } from "./alerts";
 
 export function withForClassic(coders, tBody) {
   tBody.innerHTML = ``
@@ -43,7 +44,7 @@ export function withForOf(coders, tBody) {
 }
 
 export function withForIn(coders, tBody) {
-  tBody.innerHTML = ``
+  tBody.innerHTML = ""
   for (const key in coders) {
     const coder = coders[key]
     tBody.innerHTML += `
@@ -52,6 +53,11 @@ export function withForIn(coders, tBody) {
     <td>${coder.name}</td>
     <td>${coder.lastName}</td>
     <td>${coder.email}</td>
+    <td class="">
+    <button type="button" data-id=${coder.id} class="btn btn-info me-2">Details</button>
+    <button type="button" data-id=${coder.id} class="btn btn-warning me-2">Edit</button>
+    <button type="button" data-id=${coder.id} class="btn btn-danger ms-2">Delete</button>
+    </td>
   </tr>
     `
   }
@@ -68,3 +74,14 @@ export function create(name, lastName, email, coders) {
 
   coders.push(newCoder)
 }
+
+export function deleteCoder(idToDelete, coders) {
+  coders.forEach((coder, index) => {
+    if (coder.id == idToDelete) {
+      coders.splice(index, 1)
+      alertSmallSuccess("Coder deleted successfully")
+    }
+  }
+  )
+}
+
