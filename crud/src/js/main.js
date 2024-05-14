@@ -4,12 +4,10 @@ import '../scss/styles.scss'
 import * as bootstrap from 'bootstrap'
 //Import database
 import { coders } from "../../public/data/database"
-import { withForClassic, withForEach, withForOf, withForIn, create, deleteCoder} from "./operations"
+import { withForIn, create, deleteCoder} from "./operations"
 import { alertSmallSuccess, alertDetails } from './alerts'
 
 
-const body = document.querySelector('body')
-const main = document.querySelector("main")
 const tBody = document.querySelector("#tableBody")
 const br = document.createElement("br")
 
@@ -39,13 +37,27 @@ const name = document.querySelector("#name")
 const lastName = document.querySelector("#last-name")
 const email = document.querySelector("#email")
 const form = document.querySelector("form")
+let idToEdit
 
 form.addEventListener("submit", (event) => {
-    create(name, lastName, email, coders)//Se llama la función para agregar el nuevo coder con los datos del form
-    event.preventDefault()//metodo para evitar que se refresque la pagina al darle en submit
-    alertSmallSuccess("Saved")//Se llama a la función de la alerta
+    if (idToEdit === undefined) {
+        create(name, lastName, email, coders)//Se llama la función para agregar el nuevo coder con los datos del form
+        //metodo para evitar que se refresque la pagina al darle en submit
+        alertSmallSuccess("Saved")//Se llama a la función de la alerta
+    } else {
+        for (const coder of coders) {
+            if (coder.id == idToEdit) {
+                coder.name = name.value
+                coder.lastName = lastName.value
+                coder.email = email.value
+            }
+        }
+        alertSmallSuccess("Coder updatep successfully")
+        idToEdit = undefined
+    }
     form.reset()//Resetea los campos del formulario
     withForIn(coders, tBody)//Se imprimen en el navegador la nueva lista de objetos
+    event.preventDefault()
 })
 
 const table = document.querySelector("table")
@@ -59,14 +71,18 @@ table.addEventListener("click", (event) => {
         const idToShow = event.target.getAttribute("data-id")
         coders.forEach((coder, index) => {
             if (coder.id == idToShow) {
-              
-              alertDetails(coder)
+
+                alertDetails(coder)
             }
-          }
-          )
+        }
+        )
         console.log(idToShow)
     } else if (event.target.classList.contains("btn-warning")) {
-        const idToEdit = event.target.getAttribute("data-id")
-        console.log(idToEdit)
+        idToEdit = event.target.getAttribute("data-id")
+        const coderFound = coders.find(coder => coder.id == idToEdit)
+        name.value = coderFound.name
+        lastName.value = coderFound.lastName
+        email.value = coderFound.email
     }
 })
+

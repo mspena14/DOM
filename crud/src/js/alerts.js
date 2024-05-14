@@ -24,8 +24,9 @@ export  function alertSmallSuccess(message) {
   
 export function alertDetails(coder) {
   Swal.fire({
-    title: `${coder.name, coder.lastName}`,
+    title: `${coder.name} ${coder.lastName}`,
     text: `Id: ${coder.id}`,
-    text: `Email: ${coder.email}`
+    text:`Email: ${coder.email}`
   })
 }
+
